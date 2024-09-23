@@ -1,0 +1,115 @@
+Started by user SIT753 Student
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in C:\ProgramData\Jenkins\.jenkins\workspace\My_First_Jenkins_Job
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] echo
+Pulling the source code from C:\Program Files\Jenkins"
+[Pipeline] echo
+Initiating build process using tools like Maven or Gradle
+[Pipeline] echo
+Compiling and packaging the code
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Unit and Integration Testing)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] echo
+Executing unit tests with JUnit or TestNG
+[Pipeline] echo
+Running integration tests to verify system components interact correctly
+[Pipeline] }
+[Pipeline] // script
+Post stage
+[Pipeline] script
+[Pipeline] {
+[Pipeline] emailext
+Sending email to: Bhavesharya07@gmail.com
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Code Analysis)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] echo
+Performing static code analysis using SonarQube
+[Pipeline] echo
+Ensuring code adheres to best practices
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Security Scan)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] echo
+Running security checks using Veracode
+[Pipeline] echo
+Identifying potential security vulnerabilities
+[Pipeline] }
+[Pipeline] // script
+Post stage
+[Pipeline] script
+[Pipeline] {
+[Pipeline] emailext
+Sending email to: Bhavesharya07@gmail.com
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy to Staging)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] echo
+Deploying application to staging server (e.g., AWS)
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Integration Tests in Staging)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] echo
+Running integration tests in a staging environment
+[Pipeline] echo
+Verifying app behavior in a production-like setup
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy to Production)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] echo
+Deploying application to production (e.g., AWS EC2)
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] echo
+Pipeline execution complete
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

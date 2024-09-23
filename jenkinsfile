@@ -1,0 +1,120 @@
+pipeline {
+    agent any
+    
+    environment {
+        SRC_DIR = 'C:\\Program Files\\Jenkins"'  
+    }
+    
+    triggers {
+        pollSCM('H/2 * * * *') 
+    }
+    
+    stages {
+        stage('Build') {
+            steps {
+                script {
+                    echo "Pulling the source code from ${SRC_DIR}"
+                    echo "Initiating build process using tools like Maven or Gradle"
+                    echo "Compiling and packaging the code"
+                }
+            }
+        }
+        stage('Unit and Integration Testing') {
+            steps {
+                script {
+                    echo "Executing unit tests with JUnit or TestNG"
+                    echo "Running integration tests to verify system components interact correctly"
+                }
+            }
+            post {
+                success {
+                    script {
+                        emailext(
+                            to: 'Bhavesharya07@gmail.com',
+                            subject: "Unit and Integration Tests - SUCCESS",
+                            body: "Tests completed successfully.",
+                            attachLog: true
+                        )
+                    }
+                }
+                failure {
+                    script {
+                        emailext(
+                            to: 'Bhavesharya07@gmail.com',
+                            subject: "Unit and Integration Tests - FAILURE",
+                            body: "Some tests failed. Check the logs.",
+                            attachLog: true
+                        )
+                    }
+                }
+            }
+        }
+        stage('Code Analysis') {
+            steps {
+                script {
+                    echo "Performing static code analysis using SonarQube"
+                    echo "Ensuring code adheres to best practices"
+                }
+            }
+        }
+        stage('Security Scan') {
+            steps {
+                script {
+                    echo "Running security checks using Veracode"
+                    echo "Identifying potential security vulnerabilities"
+                }
+            }
+            post {
+                success {
+                    script {
+                        emailext(
+                            to: 'Bhavesharya07@gmail.com',
+                            subject: "Security Scan - SUCCESS",
+                            body: "Security scan passed without issues.",
+                            attachLog: true
+                        )
+                    }
+                }
+                failure {
+                    script {
+                        emailext(
+                            to: 'Bhavesharya07@gmail.com',
+                            subject: "Security Scan - FAILURE",
+                            body: "Security scan encountered issues.",
+                            attachLog: true
+                        )
+                    }
+                }
+            }
+        }
+        stage('Deploy to Staging') {
+            steps {
+                script {
+                    echo "Deploying application to staging server (e.g., AWS)"
+                }
+            }
+        }
+        stage('Integration Tests in Staging') {
+            steps {
+                script {
+                    echo "Running integration tests in a staging environment"
+                    echo "Verifying app behavior in a production-like setup"
+                }
+            }
+        }
+        stage('Deploy to Production') {
+            steps {
+                script {
+                    echo "Deploying application to production (e.g., AWS EC2)"
+                }
+            }
+        }
+    }
+    
+    post {
+        always {
+            echo "Pipeline execution complete"
+        }
+    }
+}
+
